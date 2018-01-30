@@ -16,23 +16,23 @@ PVector dir;
 PVector food;
 
 void setup(){
-  size(190, 190);
+  size(660, 660);
   
   //Da vores logik er bundet til frameraten, kan vi
   //forøge hastigheden ved at hæve vores framerate.
   //prøv det
-  frameRate(4);
+  frameRate(8);
   
   snakeSize = 2;
   
   //vi tilføjer den første del af vores slange
   longSnake = new ArrayList<PVector>();
-  longSnake.add(new PVector(9*10, 9*10));
+  longSnake.add(new PVector(9*20, 9*20));
   
   //vi finder et tilfældig sted at ligge noget
   //mad til vores slange
-  food = new PVector((int)random(0,18)*10, 
-    (int)random(0,18)*10);
+  food = new PVector((int)random(0,32)*20, 
+    (int)random(0,32)*20);
     
   dir = new PVector(0, 0);
 }
@@ -42,18 +42,18 @@ void draw(){
   
   //tegner maden
   fill(255,0,0);
-  rect(food.x, food.y, 10, 10);
+  rect(food.x, food.y, 20, 20);
   fill(0,255,0);
   //har tilføjer vi et extra segment af vores slange,
   //i den retning vi bevæger os i
   longSnake.add(new PVector(
-    longSnake.get(longSnake.size()-1).x + dir.x*10, 
-    longSnake.get(longSnake.size()-1).y + dir.y*10));
+    longSnake.get(longSnake.size()-1).x + dir.x*20, 
+    longSnake.get(longSnake.size()-1).y + dir.y*20));
   
   //går igennem vært segment af vores slange
   //og tegner den.
   for(int i = longSnake.size()-1; i >= 0; i--){
-    rect(longSnake.get(i).x, longSnake.get(i).y,10,10);
+    rect(longSnake.get(i).x, longSnake.get(i).y,20,20);
     
     //kollision detection for vores slange,
     //her tjekker vi om hovedt at vores slange
@@ -66,7 +66,7 @@ void draw(){
       //og sætter den tilbage til sin start 
       //position
       longSnake = new ArrayList<PVector>();
-      longSnake.add(new PVector(9*10, 9*10));
+      longSnake.add(new PVector(9*20, 9*20));
       snakeSize = 2;
       //break kan vi bruge til at breake ud af
       //vores for-loop, uden at gøre det færdigt
@@ -82,8 +82,8 @@ void draw(){
         food.y == longSnake.get(longSnake.size()-1).y){
     
     //vi flytter vores mad et nyt sted
-    food = new PVector((int)random(0,18)*10, 
-    (int)random(0,18)*10);
+    food = new PVector((int)random(0,32)*20, 
+    (int)random(0,32)*20);
     
     snakeSize++;
     file = new SoundFile(this, "surprise.mp3");
