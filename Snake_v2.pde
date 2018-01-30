@@ -1,3 +1,5 @@
+import processing.sound.*;
+SoundFile file;
 //globale variabler 
 
 //liste over alle punkter vores slange optager
@@ -84,6 +86,8 @@ void draw(){
     (int)random(0,18)*10);
     
     snakeSize++;
+    file = new SoundFile(this, "surprise.mp3");
+    file.play();
   }
   
   
