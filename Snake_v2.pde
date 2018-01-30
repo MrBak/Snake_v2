@@ -39,8 +39,9 @@ void draw(){
   background(0);
   
   //tegner maden
+  fill(255,0,0);
   rect(food.x, food.y, 10, 10);
-  
+  fill(0,255,0);
   //har tilføjer vi et extra segment af vores slange,
   //i den retning vi bevæger os i
   longSnake.add(new PVector(
@@ -78,7 +79,7 @@ void draw(){
   if (food.x == longSnake.get(longSnake.size()-1).x &&
         food.y == longSnake.get(longSnake.size()-1).y){
     
-    //vi flytter vores med et nyt sted
+    //vi flytter vores mad et nyt sted
     food = new PVector((int)random(0,18)*10, 
     (int)random(0,18)*10);
     
