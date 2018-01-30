@@ -15,6 +15,10 @@ PVector dir;
 //slange mad
 PVector food;
 
+//slange mad billede
+PImage pic;
+
+
 void setup(){
   size(660, 660);
   
@@ -34,6 +38,13 @@ void setup(){
   food = new PVector((int)random(0,32)*20, 
     (int)random(0,32)*20);
     
+   pic = loadImage("Apple.png");
+   pic.resize(20,20);
+    
+    
+    
+    
+    
   dir = new PVector(0, 0);
 }
 
@@ -41,9 +52,11 @@ void draw(){
   background(0);
   
   //tegner maden
-  fill(255,0,0);
-  rect(food.x, food.y, 20, 20);
+  rect(food.x, food.y, 10, 10);
+  image(pic, food.x, food.y);
+
   fill(0,255,0);
+
   //har tilføjer vi et extra segment af vores slange,
   //i den retning vi bevæger os i
   longSnake.add(new PVector(
