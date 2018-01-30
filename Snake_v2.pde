@@ -85,7 +85,7 @@ void draw(){
     (int)random(0,18)*10);
     
     snakeSize++;
-    file = new SoundFile(this, "surprise.mp3");
+    file = new SoundFile(this, "LRON.mp3");
     file.play();
   }
   
